@@ -27,21 +27,24 @@ int down(t_data *data) {
   if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y + 1;
   else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'P') {
+
     data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y + 1;
   } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
+
              'C') {
     data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y + 1;
     data->map->collected++;
   } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
+
                  'E' &&
              data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y + 1;
+    ft_anim_exit(data, data->map->p_pos_y, data->map->p_pos_x);
     ft_close(data);
   }
   draw_map(data);
-
   return (1);
 }
 

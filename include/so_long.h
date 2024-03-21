@@ -64,6 +64,8 @@ int draw_collectible(t_data *data);
 // Game play
 int put_player(t_data *data);
 int move_to_right(int keysym, t_data *data);
+// Animation
+void ft_anim_exit(t_data *data, int x, int y);
 //
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 int ft_close(t_data *data);
