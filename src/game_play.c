@@ -1,7 +1,6 @@
 #include "../include/so_long.h"
 
 int up(t_data *data) {
-
   if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y - 1;
   else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'P') {
@@ -20,7 +19,6 @@ int up(t_data *data) {
     ft_close(data);
   }
   draw_map(data);
-
   return (1);
 }
 
@@ -76,7 +74,6 @@ int right(t_data *data) {
     data->map->p_pos_x = data->map->p_pos_x + 1;
   else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'p') {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
-    data->map->p_pos_x = data->map->p_pos_x + 1;
   } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] ==
              'C') {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
@@ -94,6 +91,7 @@ int right(t_data *data) {
 }
 
 int move(int keysym, t_data *data) {
+  printf("%d\n", keysym);
   if (keysym == 13) {
     mlx_clear_window(data->mlx, data->win);
     up(data);
@@ -122,7 +120,6 @@ int put_player(t_data *data) {
   mlx_put_image_to_window(data->mlx, data->win, data->player,
                           data->map->p_pos_x * PIXEL,
                           data->map->p_pos_y * PIXEL);
-  mlx_hook(data->win, 3, (1L << 1), &move, data);
-  free(data->player);
+  mlx_hook(data->win, 3, 1L << 1, move, data);
   return (1);
 }

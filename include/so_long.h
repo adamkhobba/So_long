@@ -2,9 +2,9 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-// #include "../mlx/mlx.h"
-#include <mlx.h>
+#include "../mlx/mlx.h"
 #include "../utils/get_next_line.h"
+// #include <mlx.h>
 // #include <X11/keysym.h>
 #define PIXEL 64
 

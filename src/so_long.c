@@ -32,12 +32,8 @@ int ft_so_long(t_data *data) {
   data->win = mlx_new_window(data->mlx, data->width - 64, data->height,
                              "The Old Calse");
   data->map->collected = 0;
-  // draw_floor(data);
-  // draw_exit(data);
-  // draw_barriers(data);
-  // draw_collectible(data);
   draw_map2(data);
-  // put_player(data);
+  put_player(data);
   mlx_hook(data->win, 17, (1L << 19), &ft_close, data);
   mlx_hook(data->win, 2, (1L << 0), &close_window, data);
   mlx_loop(data->mlx);

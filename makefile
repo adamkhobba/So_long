@@ -28,16 +28,10 @@ OBJ = $(SRC:.c=.o)
 
 all: $(SO_LONG)
 
-# %.o: %.c
-# 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
-
 $(SO_LONG): $(OBJ)
 	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(SO_LONG)
 	echo "\e[1;32m SO_LONG ready 🎮\e[0m" 
 
-# %.o: %.c
-# 	$(CC) $(CFLAGS) -c $< -o $@
-	# ar -rc $(NAME) $@
 
 clean :
 	rm -f $(OBJ)

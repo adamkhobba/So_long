@@ -21,7 +21,11 @@ void dfs(int pos_y, int pos_x, t_map *map, char new_char) {
     return;
   else {
     if (map->map[pos_y][pos_x] == 'E')
+    {
       map->exit_counted++;
+      if (map->collected != map->collectif_count)
+        map->collected = 0;
+    }
     if (map->map[pos_y][pos_x] == 'C')
       map->collected++;
     map->map[pos_y][pos_x] = new_char;
