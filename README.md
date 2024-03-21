@@ -1,1 +1,2 @@
-# s_long_mac
+# So_long
+My first game 🔥
