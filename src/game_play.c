@@ -123,6 +123,6 @@ int put_player(t_data *data) {
   mlx_put_image_to_window(data->mlx, data->win, data->player,
                           data->map->p_pos_x * PIXEL,
                           data->map->p_pos_y * PIXEL);
-  mlx_hook(data->win, 3, 1L << 1, move, data);
+  mlx_hook(data->win, 2, 1L << 0, move, data);
   return (1);
 }
