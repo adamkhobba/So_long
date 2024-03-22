@@ -14,7 +14,7 @@ $CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/check_map.c src/check_map1.c \
 			src/flood_fill.c  src/draw_map.c\
-			src/game_play.c\
+			src/game_play.c src/exits.c\
 			utils/get_next_line.c utils/get_next_line_utils.c \
 			src/so_long.c src/anim/animation_coin.c\
 

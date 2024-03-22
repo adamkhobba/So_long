@@ -26,10 +26,14 @@ typedef struct s_map {
 } t_map;
 
 typedef struct s_data {
+  int y;
+  int x;
+  int view;
   void *mlx;
   void *win;
   int width;
   int height;
+  int mover_count;
   void *textures[5];
   void *player;
   void *exit;
@@ -37,7 +41,7 @@ typedef struct s_data {
   void *wall;
   void *ennemie;
   void *coin;
-  int collected;
+  void *img_ptr;
   int moves;
   int img_h;
   int img_w;
@@ -61,8 +65,10 @@ int draw_exit(t_data *data);
 int draw_barriers(t_data *data);
 int draw_floor(t_data *);
 int draw_collectible(t_data *data);
+void img_ptr(t_data *data);
 // Game play
 int put_player(t_data *data);
+int move(int keysym, t_data *data);
 int move_to_right(int keysym, t_data *data);
 // Animation
 void ft_anim_exit(t_data *data, int x, int y);
@@ -72,4 +78,5 @@ int ft_close(t_data *data);
 int ft_charchr(char *str, int c);
 void ft_free_double_pointer(char **map, int line);
 int ft_so_long(t_data *data);
+int close_window(int keysym, t_data *data);
 #endif

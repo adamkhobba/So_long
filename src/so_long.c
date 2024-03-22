@@ -1,27 +1,5 @@
 #include "../include/so_long.h"
 
-int ft_close(t_data *data) {
-
-  mlx_destroy_window(data->mlx, data->win);
-  // mlx_destroy_display(data->mlx);
-  ft_free_double_pointer(data->map->map, data->map->height);
-  free(data->mlx);
-  exit(0);
-  return (0);
-}
-
-int close_window(int keysym, t_data *data) {
-
-  if (keysym == 53) {
-    mlx_destroy_window(data->mlx, data->win);
-    // mlx_destroy_display(data->mlx);
-    ft_free_double_pointer(data->map->map, data->map->height);
-    free(data->mlx);
-    exit(0);
-  }
-  return 0;
-}
-
 int ft_so_long(t_data *data) {
 
   data->height = data->map->height * PIXEL;
@@ -32,7 +10,9 @@ int ft_so_long(t_data *data) {
   data->win = mlx_new_window(data->mlx, data->width - 64, data->height,
                              "The Old Calse");
   data->map->collected = 0;
-  draw_map2(data);
+  data->view = 2;
+  img_ptr(data);
+  draw_map(data);
   put_player(data);
   mlx_hook(data->win, 17, (1L << 19), &ft_close, data);
   mlx_hook(data->win, 3, (1L << 0), &close_window, data);

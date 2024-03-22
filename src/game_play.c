@@ -4,10 +4,12 @@ int up(t_data *data) {
   if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y - 1;
   else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'P') {
+
     data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y - 1;
   } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] ==
              'C') {
+
     data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y - 1;
     data->map->collected++;
@@ -18,6 +20,8 @@ int up(t_data *data) {
     data->map->p_pos_y = data->map->p_pos_y - 1;
     ft_close(data);
   }
+  data->view = 1;
+  img_ptr(data);
   draw_map(data);
   return (1);
 }
@@ -44,6 +48,8 @@ int down(t_data *data) {
     ft_anim_exit(data, data->map->p_pos_y, data->map->p_pos_x);
     ft_close(data);
   }
+  data->view = 2;
+  img_ptr(data);
   draw_map(data);
   return (1);
 }
@@ -66,6 +72,8 @@ int left(t_data *data) {
     data->map->p_pos_x = data->map->p_pos_x - 1;
     ft_close(data);
   }
+  data->view = 4;
+  img_ptr(data);
   draw_map(data);
 
   return 1;
@@ -89,12 +97,13 @@ int right(t_data *data) {
     data->map->p_pos_x = data->map->p_pos_x + 1;
     ft_close(data);
   }
+  data->view = 3;
+  img_ptr(data);
   draw_map(data);
   return (1);
 }
 
 int move(int keysym, t_data *data) {
-  printf("%d\n", keysym);
   if (keysym == 13) {
     mlx_clear_window(data->mlx, data->win);
     up(data);
@@ -108,21 +117,5 @@ int move(int keysym, t_data *data) {
     mlx_clear_window(data->mlx, data->win);
     right(data);
   }
-  return (1);
-}
-
-int put_player(t_data *data) {
-
-  int width;
-  int height;
-
-  width = 64;
-  height = 64;
-  data->player =
-      mlx_xpm_file_to_image(data->mlx, "./img/Character.xpm", &width, &height);
-  mlx_put_image_to_window(data->mlx, data->win, data->player,
-                          data->map->p_pos_x * PIXEL,
-                          data->map->p_pos_y * PIXEL);
-  mlx_hook(data->win, 2, 1L << 0, move, data);
   return (1);
 }
