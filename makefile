@@ -16,7 +16,8 @@ SRC = src/check_map.c src/check_map1.c \
 			src/flood_fill.c  src/draw_map.c\
 			src/game_play.c src/exits.c\
 			utils/get_next_line.c utils/get_next_line_utils.c \
-			src/so_long.c src/put_nbr.c\
+			src/so_long.c src/put_nbr.c src/strncmp.c\
+			src/animation.c
 
 CC = cc
 
@@ -30,7 +31,7 @@ all: $(SO_LONG)
 
 $(SO_LONG): $(OBJ)
 	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(SO_LONG)
-	echo "\e[1;32m SO_LONG ready 🎮\e[0m" 
+	@echo "SO_LONG ready 🎮" 
 
 
 clean :

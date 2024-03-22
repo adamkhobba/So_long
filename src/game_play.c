@@ -13,12 +13,13 @@ int up(t_data *data) {
     data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y - 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] ==
-                 'E' &&
-             data->map->collected == data->map->collectif_count) {
+  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'G')
+    ft_close_lose(data);
+  else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'E' &&
+           data->map->collected == data->map->collectif_count) {
 
     data->map->p_pos_y = data->map->p_pos_y - 1;
-    ft_close(data);
+    ft_close_win(data);
   }
   data->view = 1;
   img_ptr(data);
@@ -40,12 +41,14 @@ int down(t_data *data) {
     data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y + 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
+  } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'G')
+    ft_close_lose(data);
+  else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
 
-                 'E' &&
-             data->map->collected == data->map->collectif_count) {
+               'E' &&
+           data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y + 1;
-    ft_close(data);
+    ft_close_win(data);
   }
   data->view = 2;
   img_ptr(data);
@@ -64,16 +67,16 @@ int left(t_data *data) {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
     data->map->p_pos_x = data->map->p_pos_x - 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] ==
-                 'E' &&
-             data->map->collected == data->map->collectif_count) {
+  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'G')
+    ft_close_lose(data);
+  else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'E' &&
+           data->map->collected == data->map->collectif_count) {
     data->map->p_pos_x = data->map->p_pos_x - 1;
-    ft_close(data);
+    ft_close_win(data);
   }
   data->view = 4;
   img_ptr(data);
   draw_map(data);
-
   return 1;
 }
 
@@ -88,12 +91,13 @@ int right(t_data *data) {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
     data->map->p_pos_x = data->map->p_pos_x + 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] ==
-                 'E' &&
-             data->map->collected == data->map->collectif_count) {
+  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'G')
+    ft_close_lose(data);
+  else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E' &&
+           data->map->collected == data->map->collectif_count) {
 
     data->map->p_pos_x = data->map->p_pos_x + 1;
-    ft_close(data);
+    ft_close_win(data);
   }
   data->view = 3;
   img_ptr(data);

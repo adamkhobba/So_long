@@ -39,9 +39,10 @@ typedef struct s_data {
   void *exit;
   void *floor;
   void *wall;
-  void *ennemie;
   void *coin;
   void *img_ptr;
+  void *Grid;
+  int frames;
   int moves;
   int img_h;
   int img_w;
@@ -69,10 +70,11 @@ void img_ptr(t_data *data);
 // Game play
 int put_player(t_data *data);
 int move(int keysym, t_data *data);
-void ft_putchar(char c);
-void ft_put_nbr(long nb);
 // Animation
-void ft_anim_exit(t_data *data, int x, int y);
+int ft_anim_enem(t_data *data);
+// exit
+int ft_close_win(t_data *data);
+int ft_close_lose(t_data *data);
 //
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 int ft_close(t_data *data);
@@ -80,4 +82,8 @@ int ft_charchr(char *str, int c);
 void ft_free_double_pointer(char **map, int line);
 int ft_so_long(t_data *data);
 int close_window(int keysym, t_data *data);
+// puts
+void ft_putstr(const char *s);
+void ft_putchar(char c);
+void ft_put_nbr(long nb);
 #endif

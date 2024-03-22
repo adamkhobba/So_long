@@ -18,6 +18,25 @@ void img_ptr(t_data *data) {
   else
     data->exit =
         mlx_xpm_file_to_image(data->mlx, "./img/odoor_f.xpm", &width, &height);
+  // mlx_loop_hook(data->mlx, &ft_anim_enem, data);
+  // data->Grid =
+  //     mlx_xpm_file_to_image(data->mlx, "./img/Grid_f.xpm", &width, &height);
+}
+
+int Grid(t_data *data) {
+  ft_anim_enem(data);
+  data->y = 0;
+  while (data->y < data->map->height) {
+    data->x = 0;
+    while (data->x < data->map->width) {
+      if (data->map->map[data->y][data->x] == 'G')
+        mlx_put_image_to_window(data->mlx, data->win, data->Grid, data->x * 64,
+                                data->y * 64);
+      data->x++;
+    }
+    data->y++;
+  }
+  return (1);
 }
 
 int put_player(t_data *data) {
@@ -64,11 +83,14 @@ int draw_map(t_data *data) {
         data->img_ptr = data->floor;
       if (data->map->map[data->y][data->x] == 'P')
         data->img_ptr = data->floor;
+      if (!data->img_ptr)
+        return (0);
       mlx_put_image_to_window(data->mlx, data->win, data->img_ptr, data->x * 64,
                               data->y * 64);
     }
     data->y++;
   }
   put_player(data);
+  mlx_loop_hook(data->mlx, Grid, data);
   return (1);
 }

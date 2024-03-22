@@ -40,7 +40,8 @@ t_map *check_items(t_map *map) {
   } else
     map->valid = 0;
   return (map);
-} // <=25 line
+}
+// <=25 line
 
 t_map *check_only_items(t_map *map) {
   int i;
@@ -56,14 +57,15 @@ t_map *check_only_items(t_map *map) {
       }
       if (!(map->map[i][j] == '1' || map->map[i][j] == 'P' ||
             map->map[i][j] == '0' || map->map[i][j] == 'C' ||
-            map->map[i][j] == 'E'))
+            map->map[i][j] == 'E' || map->map[i][j] == 'G'))
         map->valid = 0;
       j++;
     }
     i++;
   }
   return map;
-} // <=25 line
+}
+// <=25 line
 
 int check_path(const char *path) {
 
@@ -80,18 +82,6 @@ int check_path(const char *path) {
   if (ft_strncmp(tmp, ".ber", n) != 0)
     return 0;
   return 1;
-}
-
-int ft_strncmp(const char *s1, const char *s2, size_t n) {
-  size_t i;
-
-  i = 0;
-  while (i < n && (s1[i] != '\0' || s2[i] != '\0')) {
-    if (s1[i] != s2[i])
-      return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-    i++;
-  }
-  return (0);
 }
 
 int check_wall(char **s, int line) {
