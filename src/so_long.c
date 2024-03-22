@@ -11,6 +11,7 @@ int ft_so_long(t_data *data) {
                              "The Old Calse");
   data->map->collected = 0;
   data->view = 2;
+  data->mover_count = 0;
   img_ptr(data);
   draw_map(data);
   put_player(data);

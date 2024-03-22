@@ -69,7 +69,8 @@ void img_ptr(t_data *data);
 // Game play
 int put_player(t_data *data);
 int move(int keysym, t_data *data);
-int move_to_right(int keysym, t_data *data);
+void ft_putchar(char c);
+void ft_put_nbr(long nb);
 // Animation
 void ft_anim_exit(t_data *data, int x, int y);
 //

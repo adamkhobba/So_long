@@ -45,7 +45,6 @@ int down(t_data *data) {
                  'E' &&
              data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y + 1;
-    ft_anim_exit(data, data->map->p_pos_y, data->map->p_pos_x);
     ft_close(data);
   }
   data->view = 2;
@@ -63,7 +62,6 @@ int left(t_data *data) {
   } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] ==
              'C') {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
-    return (0);
     data->map->p_pos_x = data->map->p_pos_x - 1;
     data->map->collected++;
   } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] ==
@@ -106,15 +104,27 @@ int right(t_data *data) {
 int move(int keysym, t_data *data) {
   if (keysym == 13) {
     mlx_clear_window(data->mlx, data->win);
+    ft_put_nbr(data->mover_count);
+    ft_putchar('\n');
+    data->mover_count++;
     up(data);
   } else if (keysym == 1) {
     mlx_clear_window(data->mlx, data->win);
+    ft_put_nbr(data->mover_count);
+    ft_putchar('\n');
+    data->mover_count++;
     down(data);
   } else if (keysym == 0) {
     mlx_clear_window(data->mlx, data->win);
+    ft_put_nbr(data->mover_count);
+    ft_putchar('\n');
+    data->mover_count++;
     left(data);
   } else if (keysym == 2) {
     mlx_clear_window(data->mlx, data->win);
+    ft_put_nbr(data->mover_count);
+    ft_putchar('\n');
+    data->mover_count++;
     right(data);
   }
   return (1);
