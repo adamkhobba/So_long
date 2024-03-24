@@ -1,21 +1,21 @@
 #include "../include/so_long.h"
 
 t_map *check_rec(t_map *map) {
-
   map->i = 1;
   map->width = ft_strlen(map->map[0]);
-  if (map->width == map->height) {
-    map->valid = 0;
-    return map;
-  }
-  while (map->i < map->height) {
+  while (map->i < map->height - 1) {
     if (map->width != ft_strlen(map->map[map->i])) {
       map->valid = 0;
+      map->error->recerror = 1;
       return (map);
     }
     map->i++;
   }
-
+  if (map->width != ft_strlen(map->map[map->height - 1]) &&
+      map->width - 1 != ft_strlen((map->map[map->height - 1]))) {
+    map->valid = 0;
+    map->error->recerror = 1;
+  }
   return (map);
 } // <= 25 line
 
@@ -90,8 +90,9 @@ int check_wall(char **s, int line) {
 
   i = 0;
   len = 0;
-  while (s[0][i] != '\n' && s[line - 1][i] != '\n') {
-    if (s[0][i] != '1' || s[len][i] != '1')
+  while (s[0][i] != '\n' && s[line - 1][i] != '\n' && s[0][i] &&
+         s[line - 1][i]) {
+    if (s[0][i] != '1' || s[line - 1][i] != '1')
       return 0;
     i++;
   }

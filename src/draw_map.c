@@ -18,9 +18,6 @@ void img_ptr(t_data *data) {
   else
     data->exit =
         mlx_xpm_file_to_image(data->mlx, "./img/odoor_f.xpm", &width, &height);
-  // mlx_loop_hook(data->mlx, &ft_anim_enem, data);
-  // data->Grid =
-  //     mlx_xpm_file_to_image(data->mlx, "./img/Grid_f.xpm", &width, &height);
 }
 
 int Grid(t_data *data) {

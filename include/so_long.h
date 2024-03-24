@@ -4,9 +4,15 @@
 
 #include "../mlx/mlx.h"
 #include "../utils/get_next_line.h"
-// #include <mlx.h>
-// #include <X11/keysym.h>
 #define PIXEL 64
+
+typedef struct s_error {
+  int wallerror;
+  int patherror;
+  int recerror;
+  int itemserror;
+  int roaderror;
+} t_error;
 
 typedef struct s_map {
   char **map;
@@ -23,12 +29,14 @@ typedef struct s_map {
   int collected;
   int exit_counted;
   int points;
+  t_error *error;
 } t_map;
 
 typedef struct s_data {
   int y;
   int x;
   int view;
+  int counter;
   void *mlx;
   void *win;
   int width;
@@ -48,7 +56,6 @@ typedef struct s_data {
   int img_w;
   t_map *map;
 } t_data;
-
 // Checking of map
 t_map *check_rec(t_map *map);
 t_map *check_items(t_map *map);
@@ -75,15 +82,20 @@ int ft_anim_enem(t_data *data);
 // exit
 int ft_close_win(t_data *data);
 int ft_close_lose(t_data *data);
-//
-int ft_strncmp(const char *s1, const char *s2, size_t n);
+int close_window(int keysym, t_data *data);
 int ft_close(t_data *data);
+// utils
+int ft_strncmp(const char *s1, const char *s2, size_t n);
 int ft_charchr(char *str, int c);
 void ft_free_double_pointer(char **map, int line);
+//
 int ft_so_long(t_data *data);
-int close_window(int keysym, t_data *data);
 // puts
+char *ft_itoa(int n);
+void ft_valid_move(t_data *data);
+void ft_valid_move(t_data *data);
 void ft_putstr(const char *s);
+void ft_putstr_mlx(t_data *data);
 void ft_putchar(char c);
 void ft_put_nbr(long nb);
 #endif

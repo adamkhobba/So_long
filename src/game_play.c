@@ -81,7 +81,6 @@ int left(t_data *data) {
 }
 
 int right(t_data *data) {
-
   if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
     data->map->p_pos_x = data->map->p_pos_x + 1;
   else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'p') {
@@ -95,7 +94,6 @@ int right(t_data *data) {
     ft_close_lose(data);
   else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E' &&
            data->map->collected == data->map->collectif_count) {
-
     data->map->p_pos_x = data->map->p_pos_x + 1;
     ft_close_win(data);
   }
@@ -108,28 +106,20 @@ int right(t_data *data) {
 int move(int keysym, t_data *data) {
   if (keysym == 13) {
     mlx_clear_window(data->mlx, data->win);
-    ft_put_nbr(data->mover_count);
-    ft_putchar('\n');
-    data->mover_count++;
     up(data);
+    ft_putstr_mlx(data);
   } else if (keysym == 1) {
     mlx_clear_window(data->mlx, data->win);
-    ft_put_nbr(data->mover_count);
-    ft_putchar('\n');
-    data->mover_count++;
     down(data);
+    ft_putstr_mlx(data);
   } else if (keysym == 0) {
     mlx_clear_window(data->mlx, data->win);
-    ft_put_nbr(data->mover_count);
-    ft_putchar('\n');
-    data->mover_count++;
     left(data);
+    ft_putstr_mlx(data);
   } else if (keysym == 2) {
     mlx_clear_window(data->mlx, data->win);
-    ft_put_nbr(data->mover_count);
-    ft_putchar('\n');
-    data->mover_count++;
     right(data);
+    ft_putstr_mlx(data);
   }
   return (1);
 }

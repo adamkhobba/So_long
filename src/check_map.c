@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:35:43 by adam              #+#    #+#             */
-/*   Updated: 2024/03/06 08:35:45 by adam             ###   ########.fr       */
+/*   Updated: 2024/03/24 08:13:37 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 int line_len(int fd) {
   int counter;
   char *s;
+
   counter = 0;
   s = get_next_line(fd);
+  if (!s)
+    return (0);
   while (s) {
     free(s);
     s = get_next_line(fd);
@@ -56,6 +59,8 @@ char **fill_line(int fd, int line) {
   if (!map)
     return 0;
   map[0] = get_next_line(fd);
+  if (!map[0])
+    return (NULL);
   i = 1;
   while (i < line + 1) {
     map[i] = get_next_line(fd);
@@ -64,7 +69,8 @@ char **fill_line(int fd, int line) {
   return (map);
 }
 
-int check_map(const char *path, t_map *map) {
+int check_map(const char *path, t_map *map)
+{
   int fd;
 
   if (!check_path(path))
@@ -77,6 +83,8 @@ int check_map(const char *path, t_map *map) {
   fd = open(path, O_RDWR);
   map->valid = 1;
   map->map = fill_line(fd, map->height);
+  if (map->map == NULL)
+    return (0);
   if (!check_wall(map->map, map->height))
     return (0);
   map = check_rec(map);
