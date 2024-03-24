@@ -27,8 +27,7 @@ int main(int arc, char **arv) {
   int fd;
 
   data.map = &mp;
-  if (!check_map(arv[1], data.map))
-    return 0;
+  ft_perror(arv[1], data.map);
   fd = open(arv[1], O_RDWR);
   if (fd < 0)
     return 0;

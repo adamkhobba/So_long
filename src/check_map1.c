@@ -1,4 +1,5 @@
 #include "../include/so_long.h"
+#include <stdio.h>
 
 t_map *check_rec(t_map *map) {
   map->i = 1;
@@ -39,6 +40,8 @@ t_map *check_items(t_map *map) {
       map->valid = 0;
   } else
     map->valid = 0;
+  if (!map->valid)
+    map->error->itemserror = 1;
   return (map);
 }
 // <=25 line
@@ -93,15 +96,16 @@ int check_wall(char **s, int line) {
   while (s[0][i] != '\n' && s[line - 1][i] != '\n' && s[0][i] &&
          s[line - 1][i]) {
     if (s[0][i] != '1' || s[line - 1][i] != '1')
-      return 0;
+      return (0);
     i++;
   }
+  printf("\nS\n");
   i = 1;
   while (s[i] && i < line - 1) {
     len = ft_strlen(s[i]);
     if (s[i][0] != '1' || s[i][len - 2] != '1')
-      return 0;
+      return (0);
     i++;
   }
-  return 1;
+  return (0);
 }

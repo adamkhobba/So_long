@@ -17,7 +17,7 @@ SRC = src/check_map.c src/check_map1.c \
 			src/game_play.c src/exits.c\
 			utils/get_next_line.c utils/get_next_line_utils.c \
 			src/so_long.c src/puts.c src/strncmp.c\
-			src/animation.c
+			src/animation.c src/error.c
 
 CC = cc
 

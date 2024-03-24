@@ -58,12 +58,14 @@ typedef struct s_data {
 } t_data;
 // Checking of map
 t_map *check_rec(t_map *map);
+void ft_plus_fts(t_map *map);
 t_map *check_items(t_map *map);
 t_map *check_only_items(t_map *map);
 int check_path(const char *path);
 t_map *flood_fill(t_map *map, char new_char);
 int check_map(const char *path, t_map *map);
 int check_wall(char **s, int line);
+int ft_perror(char *path, t_map *map);
 char **fill_line(int fd, int line);
 // Drawing of map
 int draw_map(t_data *data);

@@ -46,8 +46,9 @@ t_map *flood_fill(t_map *map, char new_char) {
   map->exit_counted = 0;
   map->collected = 0;
   dfs(map->p_pos_y, map->p_pos_x, map, new_char);
-
-  if (!(map->exit_counted) || (map->collected != map->collectif_count))
+  if (!(map->exit_counted) || (map->collected != map->collectif_count)) {
+    map->error->roaderror = 1;
     map->valid = 0;
+  }
   return map;
 }
