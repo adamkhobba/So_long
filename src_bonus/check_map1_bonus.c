@@ -1,5 +1,4 @@
-#include "../include/so_long.h"
-#include <stdio.h>
+#include "../include_bonus/so_long_bonus.h"
 
 t_map *check_rec(t_map *map) {
   map->i = 1;

@@ -72,7 +72,6 @@ char **fill_line(int fd, int line) {
 int check_map(const char *path, t_map *map) {
   int fd;
 
-  printf("a\n");
   if (!check_path(path)) {
     map->patherror = 1;
     return 0;
@@ -85,7 +84,6 @@ int check_map(const char *path, t_map *map) {
   fd = open(path, O_RDWR);
   map->valid = 1;
   map->map = fill_line(fd, map->height);
-  printf("s\n");
   if (map->map == NULL)
     return (0);
   if (check_wall(map->map, map->height) == 0) {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 int line_len(int fd) {
   int counter;

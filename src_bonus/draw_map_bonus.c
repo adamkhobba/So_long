@@ -1,4 +1,4 @@
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void img_ptr(t_data *data) {
   int width;

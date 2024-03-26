@@ -1,4 +1,4 @@
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 int up(t_data *data) {
   if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')

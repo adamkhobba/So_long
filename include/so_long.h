@@ -37,7 +37,7 @@ typedef struct s_data {
   void *win;
   int width;
   int height;
-  int mover_count;
+  int move_count;
   void *textures[5];
   void *player;
   void *exit;
@@ -90,8 +90,7 @@ void ft_free_double_pointer(char **map, int line);
 int ft_so_long(t_data *data);
 // puts
 char *ft_itoa(int n);
-void ft_valid_move(t_data *data);
-void ft_valid_move(t_data *data);
+void ft_valid_move(t_data *data, int move);
 void ft_putstr(const char *s);
 void ft_putstr_mlx(t_data *data);
 void ft_putchar(char c);

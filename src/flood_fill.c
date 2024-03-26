@@ -17,8 +17,7 @@ void ft_getpos(t_map *map) {
 void dfs(int pos_y, int pos_x, t_map *map, char new_char) {
 
   if (pos_x < 0 || pos_y < 0 || pos_x >= map->width || pos_y >= map->height ||
-      map->map[pos_y][pos_x] == '1' || map->map[pos_y][pos_x] == new_char ||
-      map->map[pos_y][pos_x] == 'G')
+      map->map[pos_y][pos_x] == '1' || map->map[pos_y][pos_x] == new_char)
     return;
   else {
 
