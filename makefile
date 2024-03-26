@@ -20,12 +20,13 @@ SRC = src/check_map.c src/check_map1.c \
 			src/animation.c src/error.c
 
 CC = cc
-
 NAME = map.a
 
-SO_LONG = so_Long
+SO_LONG = so_long
 
 OBJ = $(SRC:.c=.o)
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(SO_LONG)
 
