@@ -99,7 +99,6 @@ int check_wall(char **s, int line) {
       return (0);
     i++;
   }
-  printf("\nS\n");
   i = 1;
   while (s[i] && i < line - 1) {
     len = ft_strlen(s[i]);
@@ -107,5 +106,5 @@ int check_wall(char **s, int line) {
       return (0);
     i++;
   }
-  return (0);
+  return (1);
 }

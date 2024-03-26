@@ -15,7 +15,9 @@ void ft_init(t_map *map) {
 }
 
 int ft_perror(char *path, t_map *map) {
+  ft_init(map);
   if (!check_map(path, map)) {
+    printf("s\n");
     if (map->error->patherror) {
 
       ft_putstr("invalid path");
