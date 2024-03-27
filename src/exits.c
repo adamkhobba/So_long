@@ -26,6 +26,7 @@ int ft_close_lose(t_data *data) {
   exit(0);
   return (0);
 }
+
 int close_window(int keysym, t_data *data) {
   if (keysym == 53) {
     mlx_destroy_window(data->mlx, data->win);

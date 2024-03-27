@@ -37,9 +37,6 @@ SRC_BONUS = src_bonus/check_map_bonus.c src_bonus/check_map1_bonus.c \
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-# $(OBJ_BONUS): $(SRC_BONUS)
-# 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
-
 all: $(SO_LONG)
 
 $(SO_LONG): $(OBJ)

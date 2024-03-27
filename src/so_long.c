@@ -35,6 +35,5 @@ int main(int arc, char **arv) {
     return 0;
   data.map->map = fill_line(fd, data.map->height);
   ft_so_long(&data);
-  system("leaks so_long");
   return (0);
 }
