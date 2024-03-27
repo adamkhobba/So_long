@@ -4,6 +4,7 @@
 
 #include "../mlx/mlx.h"
 #include "../utils/get_next_line.h"
+#include <stdlib.h>
 #define PIXEL 64
 
 typedef struct s_map {
@@ -90,7 +91,6 @@ void ft_free_double_pointer(char **map, int line);
 int ft_so_long(t_data *data);
 // puts
 char *ft_itoa(int n);
-void ft_valid_move(t_data *data, int move);
 void ft_putstr(const char *s);
 void ft_putstr_mlx(t_data *data);
 void ft_putchar(char c);

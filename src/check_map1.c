@@ -1,5 +1,4 @@
 #include "../include/so_long.h"
-#include <stdio.h>
 
 t_map *check_rec(t_map *map) {
   map->i = 1;
@@ -60,7 +59,7 @@ t_map *check_only_items(t_map *map) {
       }
       if (!(map->map[i][j] == '1' || map->map[i][j] == 'P' ||
             map->map[i][j] == '0' || map->map[i][j] == 'C' ||
-            map->map[i][j] == 'E' || map->map[i][j] == 'G'))
+            map->map[i][j] == 'E'))
         map->valid = 0;
       j++;
     }

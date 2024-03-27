@@ -1,23 +1,22 @@
-#include "../include_bonus/so_long_bonus.h"
+#include "../include/so_long.h"
 
 int up(t_data *data) {
+  if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != '1' &&
+      data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != 'E')
+    data->move_count++;
   if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y - 1;
   else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'P') {
-
     data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y - 1;
   } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] ==
              'C') {
-
     data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y - 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'G')
-    ft_close_lose(data);
-  else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'E' &&
-           data->map->collected == data->map->collectif_count) {
-
+  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] ==
+                 'E' &&
+             data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y - 1;
     ft_close_win(data);
   }
@@ -29,6 +28,9 @@ int up(t_data *data) {
 
 int down(t_data *data) {
 
+  if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != '1' &&
+      data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != 'E')
+    data->move_count++;
   if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y + 1;
   else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'P') {
@@ -41,12 +43,10 @@ int down(t_data *data) {
     data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
     data->map->p_pos_y = data->map->p_pos_y + 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'G')
-    ft_close_lose(data);
-  else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
+  } else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] ==
 
-               'E' &&
-           data->map->collected == data->map->collectif_count) {
+                 'E' &&
+             data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y + 1;
     ft_close_win(data);
   }
@@ -57,6 +57,9 @@ int down(t_data *data) {
 }
 
 int left(t_data *data) {
+  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != '1' &&
+      data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != 'E')
+    data->move_count++;
   if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == '0')
     data->map->p_pos_x = data->map->p_pos_x - 1;
   else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'p') {
@@ -67,10 +70,9 @@ int left(t_data *data) {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
     data->map->p_pos_x = data->map->p_pos_x - 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'G')
-    ft_close_lose(data);
-  else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'E' &&
-           data->map->collected == data->map->collectif_count) {
+  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] ==
+                 'E' &&
+             data->map->collected == data->map->collectif_count) {
     data->map->p_pos_x = data->map->p_pos_x - 1;
     ft_close_win(data);
   }
@@ -81,6 +83,9 @@ int left(t_data *data) {
 }
 
 int right(t_data *data) {
+  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != '1' &&
+      data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != 'E')
+    data->move_count++;
   if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
     data->map->p_pos_x = data->map->p_pos_x + 1;
   else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'p') {
@@ -90,10 +95,9 @@ int right(t_data *data) {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
     data->map->p_pos_x = data->map->p_pos_x + 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'G')
-    ft_close_lose(data);
-  else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E' &&
-           data->map->collected == data->map->collectif_count) {
+  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] ==
+                 'E' &&
+             data->map->collected == data->map->collectif_count) {
     data->map->p_pos_x = data->map->p_pos_x + 1;
     ft_close_win(data);
   }

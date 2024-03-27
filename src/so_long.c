@@ -1,4 +1,5 @@
 #include "../include/so_long.h"
+#include <unistd.h>
 
 int ft_so_long(t_data *data) {
 
@@ -29,11 +30,11 @@ int main(int arc, char **arv) {
   data.map = &mp;
 
   ft_perror(arv[1], data.map);
-  // printf("%d", check_map(arv[1], data.map));
   fd = open(arv[1], O_RDWR);
   if (fd < 0)
     return 0;
   data.map->map = fill_line(fd, data.map->height);
   ft_so_long(&data);
+  system("leaks so_long");
   return (0);
 }
