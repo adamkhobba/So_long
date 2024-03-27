@@ -1,8 +1,7 @@
 #include "../include/so_long.h"
 
 int up(t_data *data) {
-  if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != '1' &&
-      data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != 'E')
+  if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != '1')
     data->move_count++;
   if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y - 1;
@@ -19,17 +18,16 @@ int up(t_data *data) {
              data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y - 1;
     ft_close_win(data);
-  }
+  } else
+    ft_chose(data, 1);
   data->view = 1;
-  img_ptr(data);
   draw_map(data);
   return (1);
 }
 
 int down(t_data *data) {
 
-  if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != '1' &&
-      data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != 'E')
+  if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != '1')
     data->move_count++;
   if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == '0')
     data->map->p_pos_y = data->map->p_pos_y + 1;
@@ -49,16 +47,15 @@ int down(t_data *data) {
              data->map->collected == data->map->collectif_count) {
     data->map->p_pos_y = data->map->p_pos_y + 1;
     ft_close_win(data);
-  }
+  } else
+    ft_chose(data, 2);
   data->view = 2;
-  img_ptr(data);
   draw_map(data);
   return (1);
 }
 
 int left(t_data *data) {
-  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != '1' &&
-      data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != 'E')
+  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != '1')
     data->move_count++;
   if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == '0')
     data->map->p_pos_x = data->map->p_pos_x - 1;
@@ -75,16 +72,15 @@ int left(t_data *data) {
              data->map->collected == data->map->collectif_count) {
     data->map->p_pos_x = data->map->p_pos_x - 1;
     ft_close_win(data);
-  }
+  } else
+    ft_chose(data, 4);
   data->view = 4;
-  img_ptr(data);
   draw_map(data);
   return 1;
 }
 
 int right(t_data *data) {
-  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != '1' &&
-      data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != 'E')
+  if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != '1')
     data->move_count++;
   if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
     data->map->p_pos_x = data->map->p_pos_x + 1;
@@ -95,14 +91,9 @@ int right(t_data *data) {
     data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
     data->map->p_pos_x = data->map->p_pos_x + 1;
     data->map->collected++;
-  } else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] ==
-                 'E' &&
-             data->map->collected == data->map->collectif_count) {
-    data->map->p_pos_x = data->map->p_pos_x + 1;
-    ft_close_win(data);
-  }
+  } else
+    ft_chose(data, 3);
   data->view = 3;
-  img_ptr(data);
   draw_map(data);
   return (1);
 }

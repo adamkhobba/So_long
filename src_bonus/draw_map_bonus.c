@@ -63,9 +63,9 @@ int put_player(t_data *data) {
 }
 
 int draw_map(t_data *data) {
-
-  data->y = 0;
-  while (data->y < data->map->height) {
+  img_ptr(data);
+  data->y = -1;
+  while (++data->y < data->map->height) {
 
     data->x = -1;
     while (data->x++ < data->map->width) {
@@ -85,7 +85,6 @@ int draw_map(t_data *data) {
       mlx_put_image_to_window(data->mlx, data->win, data->img_ptr, data->x * 64,
                               data->y * 64);
     }
-    data->y++;
   }
   put_player(data);
   mlx_loop_hook(data->mlx, Grid, data);

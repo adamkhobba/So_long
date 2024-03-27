@@ -19,3 +19,46 @@ void ft_putstr_mlx(t_data *data) {
   mlx_string_put(data->mlx, data->win, 64, 64, 0x592690, str);
   free(str);
 }
+
+void ft_int(int *a, int *b, int move) {
+  if (move == 1) {
+
+    *a = -1;
+    *b = 0;
+  }
+  if (move == 2) {
+
+    *a = +1;
+    *b = 0;
+  }
+  if (move == 3) {
+
+    *a = 0;
+    *b = +1;
+  }
+  if (move == 4) {
+
+    *a = 0;
+    *b = -1;
+  }
+}
+
+void ft_chose(t_data *data, int move) {
+  int a;
+  int b;
+
+  a = 0;
+  b = 0;
+  ft_int(&a, &b, move);
+  if (data->map->map[data->map->p_pos_y + a][data->map->p_pos_x + b] == 'E' &&
+      data->map->collected == data->map->collectif_count) {
+    data->map->p_pos_y = data->map->p_pos_y + a;
+    data->map->p_pos_x = data->map->p_pos_x + b;
+    ft_close_win(data);
+  } else if (data->map->map[data->map->p_pos_y + a][data->map->p_pos_x + b] ==
+             'G') {
+    data->map->p_pos_y = data->map->p_pos_y + a;
+    data->map->p_pos_x = data->map->p_pos_x + b;
+    ft_close_lose(data);
+  }
+}

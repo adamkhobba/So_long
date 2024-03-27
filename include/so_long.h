@@ -76,6 +76,7 @@ void img_ptr(t_data *data);
 // Game play
 int put_player(t_data *data);
 int move(int keysym, t_data *data);
+void ft_chose(t_data *data, int move);
 // Animation
 int ft_anim_enem(t_data *data);
 // exit
