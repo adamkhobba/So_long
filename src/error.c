@@ -6,7 +6,7 @@
 /*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:49:49 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 07:49:51 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:00:03 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_perror(char *path, t_map *map)
 			ft_putstr("The map should be surrounded by walls");
 		if (map->roaderror)
 			ft_putstr("Player can't access to exit or a collectif");
+	system("leaks so_long");
 		exit(1);
 	}
 	return (1);
