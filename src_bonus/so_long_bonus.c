@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:30:23 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:30:24 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:39:54 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int arc, char **arv)
 	t_map	mp;
 	int		fd;
 
+	if (arc != 2)
+		return (1);
 	data.map = &mp;
 	ft_perror(arv[1], data.map);
 	fd = open(arv[1], O_RDWR);

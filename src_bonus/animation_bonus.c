@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:27 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 09:16:04 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:41:50 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/so_long.h"
+
+#include "../include_bonus/so_long_bonus.h"
 
 int	ft_anim_enem(t_data *data)
 {
@@ -19,6 +20,7 @@ int	ft_anim_enem(t_data *data)
 
 	height = 64;
 	width = 64;
+	s = NULL;
 	if (data->frames < 20)
 		s = "./img/Grid_f.xpm";
 	else if (data->frames < 30)

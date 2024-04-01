@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:29:26 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:29:32 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:43:59 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,20 @@ int	ft_perror(char *path, t_map *map)
 		exit(1);
 	}
 	return (1);
+}
+void	ft_invalid_image(t_data *data)
+{
+	if (data->player == NULL)
+	{
+		ft_putstr("invalid image");
+		exit(1);
+	}
+}
+void	ft_invalid_image_p(t_data *data)
+{
+	if (data->img_ptr == NULL)
+	{
+		ft_putstr("invalid image");
+		exit(1);
+	}
 }

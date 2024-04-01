@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map1_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:52 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 09:17:49 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:39:10 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_map	*check_rec(t_map *map)
 	map->width = ft_strlen(map->map[0]);
 	while (map->i < map->height - 1)
 	{
-		if (map->width != ft_strlen(map->map[map->i]))
+		if ((size_t)map->width != ft_strlen(map->map[map->i]))
 		{
 			map->valid = 0;
 			map->recerror = 1;
@@ -26,7 +26,7 @@ t_map	*check_rec(t_map *map)
 		}
 		map->i++;
 	}
-	if (map->width != ft_strlen(map->map[map->height - 1]) && map->width
+	if ((size_t)map->width != ft_strlen(map->map[map->height - 1]) && (size_t)map->width
 		- 1 != ft_strlen((map->map[map->height - 1])))
 	{
 		map->valid = 0;
@@ -92,7 +92,6 @@ t_map	*check_only_items(t_map *map)
 
 int	check_path(const char *path)
 {
-	int		i;
 	char	*str;
 	char	*tmp;
 	int		n;

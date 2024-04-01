@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:29:55 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:29:59 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:42:30 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_getpos(t_map *map)
 	int	i;
 	int	j;
 
+	i = 0;
 	while (i < map->height)
 	{
 		j = 0;
@@ -43,7 +44,7 @@ void	dfs(int pos_y, int pos_x, t_map *map, char new_char)
 		{
 			map->exit_counted++;
 			if (map->collected != map->collectif_count)
-				map->collected = 0;
+				return ;
 		}
 		if (map->map[pos_y][pos_x] == 'C')
 			map->collected++;
