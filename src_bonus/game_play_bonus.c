@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_play_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:30:07 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:30:08 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:12:14 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	left(t_data *data)
 		data->move_count++;
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x - 1;
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'p')
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'P')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
 		data->map->p_pos_x = data->map->p_pos_x - 1;
@@ -97,7 +97,7 @@ int	right(t_data *data)
 		data->move_count++;
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x + 1;
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'p')
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'P')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
 	}

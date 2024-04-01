@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:50:10 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 07:50:19 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:16:32 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void dfs(int pos_y, int pos_x, t_map *map, char new_char) {
     if (map->map[pos_y][pos_x] == 'E') {
       map->exit_counted++;
       if (map->collected != map->collectif_count)
-        map->collected = 0;
+        return ;
     }
     if (map->map[pos_y][pos_x] == 'C')
       map->collected++;

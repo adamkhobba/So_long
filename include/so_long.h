@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:48:58 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 09:49:01 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:35:48 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int			ft_close_win(t_data *data);
 int			ft_close_lose(t_data *data);
 int			close_window(int keysym, t_data *data);
 int			ft_close(t_data *data);
+void	ft_invalid_image_p(t_data *data);
+void	ft_invalid_image(t_data *data);
 // utils
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_charchr(char *str, int c);

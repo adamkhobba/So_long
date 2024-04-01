@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:05:38 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:05:40 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/01 20:37:22 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	put_player(t_data *data)
 	else if (data->view == 4)
 		data->player = mlx_xpm_file_to_image(data->mlx,
 				"./img/Character_left.xpm", &width, &height);
+	ft_invalid_image(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->player,
 		data->map->p_pos_x * PIXEL, data->map->p_pos_y * PIXEL);
 	mlx_hook(data->win, 2, 1L << 0, &move, data);
@@ -95,8 +96,7 @@ int	draw_map(t_data *data)
 				data->img_ptr = data->floor;
 			if (data->map->map[data->y][data->x] == 'P')
 				data->img_ptr = data->floor;
-			if (!data->img_ptr)
-				return (0);
+			ft_invalid_image_p(data);
 			mlx_put_image_to_window(data->mlx, data->win, data->img_ptr, data->x
 				* 64, data->y * 64);
 		}
