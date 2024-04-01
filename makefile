@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-$CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/check_map.c src/check_map1.c \
 			src/flood_fill.c  src/draw_map.c\
@@ -40,7 +40,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 all: $(SO_LONG)
 
 $(SO_LONG): $(OBJ)
-	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(SO_LONG)
+	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(SO_LONG)
 	@echo "SO_LONG ready 🎮" 
 
 bonus : $(SO_LONG_BONUS)
