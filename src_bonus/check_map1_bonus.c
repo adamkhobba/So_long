@@ -26,8 +26,8 @@ t_map	*check_rec(t_map *map)
 		}
 		map->i++;
 	}
-	if ((size_t)map->width != ft_strlen(map->map[map->height - 1]) && (size_t)map->width
-		- 1 != ft_strlen((map->map[map->height - 1])))
+	if ((size_t)map->width != ft_strlen(map->map[map->height - 1])
+		&& (size_t)map->width - 1 != ft_strlen((map->map[map->height - 1])))
 	{
 		map->valid = 0;
 		map->recerror = 1;

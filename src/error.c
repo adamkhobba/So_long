@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:49:49 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:36:23 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/02 10:40:16 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	ft_perror(char *path, t_map *map)
 			ft_putstr("The map should be surrounded by walls");
 		if (map->roaderror)
 			ft_putstr("Player can't access to exit or a collectif");
-	system("leaks so_long");
 		exit(1);
 	}
 	return (1);
 }
+
 void	ft_invalid_image(t_data *data)
 {
 	if (data->player == NULL)
@@ -49,6 +49,7 @@ void	ft_invalid_image(t_data *data)
 		exit(1);
 	}
 }
+
 void	ft_invalid_image_p(t_data *data)
 {
 	if (data->img_ptr == NULL)

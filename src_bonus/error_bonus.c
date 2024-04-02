@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:29:26 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:43:59 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/02 10:44:24 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	ft_perror(char *path, t_map *map)
 	}
 	return (1);
 }
+
 void	ft_invalid_image(t_data *data)
 {
 	if (data->player == NULL)
@@ -57,6 +58,7 @@ void	ft_invalid_image(t_data *data)
 		exit(1);
 	}
 }
+
 void	ft_invalid_image_p(t_data *data)
 {
 	if (data->img_ptr == NULL)
