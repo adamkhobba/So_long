@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:30:07 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:12:14 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/02 11:06:26 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	up(t_data *data)
 	if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
 		data->map->p_pos_y = data->map->p_pos_y - 1;
 	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'P')
-	{
 		data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
-		data->map->p_pos_y = data->map->p_pos_y - 1;
-	}
 	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'C')
 	{
 		data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
@@ -46,10 +43,7 @@ int	down(t_data *data)
 	if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == '0')
 		data->map->p_pos_y = data->map->p_pos_y + 1;
 	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'P')
-	{
 		data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
-		data->map->p_pos_y = data->map->p_pos_y + 1;
-	}
 	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'C')
 	{
 		data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
@@ -72,10 +66,7 @@ int	left(t_data *data)
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x - 1;
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'P')
-	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
-		data->map->p_pos_x = data->map->p_pos_x - 1;
-	}
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'C')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
@@ -98,9 +89,7 @@ int	right(t_data *data)
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x + 1;
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'P')
-	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
-	}
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'C')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';

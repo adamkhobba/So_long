@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strncmp_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:30:36 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 08:30:39 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/02 11:07:51 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	ft_chose(t_data *data, int move)
 	{
 		data->map->p_pos_y = data->map->p_pos_y + a;
 		data->map->p_pos_x = data->map->p_pos_x + b;
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_win(data);
 	}
 	else if (data->map->map[data->map->p_pos_y + a][data->map->p_pos_x
@@ -79,6 +81,8 @@ void	ft_chose(t_data *data, int move)
 	{
 		data->map->p_pos_y = data->map->p_pos_y + a;
 		data->map->p_pos_x = data->map->p_pos_x + b;
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_lose(data);
 	}
 }

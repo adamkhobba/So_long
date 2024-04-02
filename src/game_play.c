@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:50:46 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:11:19 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/02 11:05:06 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ int	up(t_data *data)
 	if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == '0')
 		data->map->p_pos_y = data->map->p_pos_y - 1;
 	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'P')
-	{
 		data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
-		data->map->p_pos_y = data->map->p_pos_y - 1;
-	}
 	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'C')
 	{
 		data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] = '0';
 		data->map->p_pos_y = data->map->p_pos_y - 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'E'
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
 		&& data->map->collected == data->map->collectif_count)
+	{
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_win(data);
+	}
 	data->view = 1;
 	img_ptr(data);
 	draw_map(data);
@@ -47,19 +48,20 @@ int	down(t_data *data)
 	if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == '0')
 		data->map->p_pos_y = data->map->p_pos_y + 1;
 	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'P')
-	{
 		data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
-		data->map->p_pos_y = data->map->p_pos_y + 1;
-	}
 	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'C')
 	{
 		data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] = '0';
 		data->map->p_pos_y = data->map->p_pos_y + 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'E'
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
 		&& data->map->collected == data->map->collectif_count)
+	{
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_win(data);
+	}
 	data->view = 2;
 	img_ptr(data);
 	draw_map(data);
@@ -74,19 +76,20 @@ int	left(t_data *data)
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x - 1;
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'P')
-	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
-		data->map->p_pos_x = data->map->p_pos_x - 1;
-	}
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'C')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] = '0';
 		data->map->p_pos_x = data->map->p_pos_x - 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'E'
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
 		&& data->map->collected == data->map->collectif_count)
+	{
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_win(data);
+	}
 	data->view = 4;
 	img_ptr(data);
 	draw_map(data);
@@ -101,9 +104,7 @@ int	right(t_data *data)
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == '0')
 		data->map->p_pos_x = data->map->p_pos_x + 1;
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'P')
-	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
-	}
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'C')
 	{
 		data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] = '0';
@@ -112,7 +113,11 @@ int	right(t_data *data)
 	}
 	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
 		&& data->map->collected == data->map->collectif_count)
+	{
+		data->move_count++;
+		ft_putstr_mlx(data);
 		ft_close_win(data);
+	}
 	data->view = 3;
 	img_ptr(data);
 	draw_map(data);
