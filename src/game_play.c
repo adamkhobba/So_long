@@ -27,7 +27,7 @@ int	up(t_data *data)
 		data->map->p_pos_y = data->map->p_pos_y - 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
+	else if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] == 'E'
 		&& data->map->collected == data->map->collectif_count)
 	{
 		data->move_count++;
@@ -55,7 +55,7 @@ int	down(t_data *data)
 		data->map->p_pos_y = data->map->p_pos_y + 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
+	else if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] == 'E'
 		&& data->map->collected == data->map->collectif_count)
 	{
 		data->move_count++;
@@ -83,7 +83,7 @@ int	left(t_data *data)
 		data->map->p_pos_x = data->map->p_pos_x - 1;
 		data->map->collected++;
 	}
-	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] == 'E'
+	else if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] == 'E'
 		&& data->map->collected == data->map->collectif_count)
 	{
 		data->move_count++;
