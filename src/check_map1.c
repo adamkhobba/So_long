@@ -97,6 +97,8 @@ int	check_path(const char *path)
 	char	*tmp;
 	int		n;
 
+	if (!path)
+		return (0);
 	str = (char *)path;
 	while (ft_strchr(str, '/'))
 	{
