@@ -65,7 +65,6 @@ int ft_movement_enemy(t_data *data)
           data->x++;
         }
 			}
-        printf("%c", data->map->map[data->y][data->x]);
         if (i > 10)
           i = 0;
         i++;
