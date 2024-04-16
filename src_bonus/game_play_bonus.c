@@ -14,6 +14,7 @@
 
 int	up(t_data *data)
 {
+	ft_movement_enemy(data);
 	if (data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != '1'
 		&& data->map->map[data->map->p_pos_y - 1][data->map->p_pos_x] != 'E')
 		data->move_count++;
@@ -37,6 +38,7 @@ int	up(t_data *data)
 
 int	down(t_data *data)
 {
+	ft_movement_enemy(data);
 	if (data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != '1'
 		&& data->map->map[data->map->p_pos_y + 1][data->map->p_pos_x] != 'E')
 		data->move_count++;
@@ -60,6 +62,7 @@ int	down(t_data *data)
 
 int	left(t_data *data)
 {
+	ft_movement_enemy(data);
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != '1'
 		&& data->map->map[data->map->p_pos_y][data->map->p_pos_x - 1] != 'E')
 		data->move_count++;
@@ -83,6 +86,7 @@ int	left(t_data *data)
 
 int	right(t_data *data)
 {
+	ft_movement_enemy(data);
 	if (data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != '1'
 		&& data->map->map[data->map->p_pos_y][data->map->p_pos_x + 1] != 'E')
 		data->move_count++;

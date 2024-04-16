@@ -69,22 +69,10 @@ void	ft_chose(t_data *data, int move)
 	ft_int(&a, &b, move);
 	if (data->map->map[data->map->p_pos_y + a][data->map->p_pos_x + b] == 'E'
 		&& data->map->collected == data->map->collectif_count)
-	{
-		data->map->p_pos_y = data->map->p_pos_y + a;
-		data->map->p_pos_x = data->map->p_pos_x + b;
-		data->move_count++;
-		ft_putstr_mlx(data);
 		ft_close_win(data);
-	}
 	else if (data->map->map[data->map->p_pos_y + a][data->map->p_pos_x
 		+ b] == 'G')
-	{
-		data->map->p_pos_y = data->map->p_pos_y + a;
-		data->map->p_pos_x = data->map->p_pos_x + b;
-		data->move_count++;
-		ft_putstr_mlx(data);
 		ft_close_lose(data);
-	}
 }
 
 void	ft_invalid_image_grid(t_data *data)
