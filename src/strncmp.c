@@ -12,9 +12,9 @@
 
 #include "../include/so_long.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
@@ -26,13 +26,14 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-void ft_plus_fts(t_map *map)
+void	ft_plus_fts(t_map *map)
 {
 	map = check_rec(map);
 	if (map->height > 60 || map->width > 34)
 	{
 		ft_free_double_pointer(map->map, map->height);
-		ft_putstr("invalid size, did you seen any game has a over size than your  monitor *^!@%");
+		ft_putstr("invalid size,
+			did you seen any game has a over size than your  monitor *^!@%");
 		exit(1);
 	}
 	map = check_items(map);
@@ -40,9 +41,9 @@ void ft_plus_fts(t_map *map)
 	ft_free_double_pointer(map->map, map->height);
 }
 
-void ft_putstr_mlx(t_data *data)
+void	ft_putstr_mlx(t_data *data)
 {
-	char *str;
+	char	*str;
 
 	str = ft_itoa(data->move_count);
 	ft_putstr(str);

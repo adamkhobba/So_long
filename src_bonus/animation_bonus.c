@@ -40,37 +40,32 @@ int	ft_anim_enem(t_data *data)
 	data->frames++;
 	return (0);
 }
-int ft_movement_enemy(t_data *data)
-{
-  int i;
 
-  i = 0;
+int	ft_movement_enemy(t_data *data)
+{
+	int	i;
+
+	i = 0;
 	data->y = 0;
 	while (data->y < data->map->height)
 	{
-		data->x = 0;
-		while (data->x < data->map->width)
+		data->x = -1 ;
+		while (data->x++ < data->map->width)
 		{
 			if (data->map->map[data->y][data->x] == 'G')
 			{
-				data->map->map[data->y][data->x] = '0';
-				if (data->map->map[data->y][data->x + 1] == '0' && i <= 5)
-        {
+					data->map->map[data->y][data->x] = '0';
+				if (data->map->map[data->y][data->x + 1] == '0' && i <= 1)
 					data->map->map[data->y][data->x + 1] = 'G';
-          data->x++;
-        }
-				else if (data->map->map[data->y][data->x - 1] == '0' && i > 5)
-        {
+				else if (data->map->map[data->y][data->x - 1] == '0' && i > 1)
 					data->map->map[data->y][data->x - 1] = 'G';
-          data->x++;
-        }
+				data->x++;
 			}
-        if (i > 10)
-          i = 0;
-        i++;
-			data->x++;
+			if (i > 2)
+				i = 0;
+			i++;
 		}
 		data->y++;
 	}
-  return(1);
+	return (1);
 }

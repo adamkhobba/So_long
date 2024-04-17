@@ -96,6 +96,8 @@ int	draw_map(t_data *data)
 				data->img_ptr = data->floor;
 			if (data->map->map[data->y][data->x] == 'P')
 				data->img_ptr = data->floor;
+			if (data->map->map[data->y][data->x] == 'G')
+				data->img_ptr = data->floor;
 			ft_invalid_image_p(data);
 			mlx_put_image_to_window(data->mlx, data->win, data->img_ptr, data->x
 				* 64, data->y * 64);
