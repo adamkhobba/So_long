@@ -88,15 +88,11 @@ int	draw_map(t_data *data)
 		{
 			if (data->map->map[data->y][data->x] == '1')
 				data->img_ptr = data->wall;
-			if (data->map->map[data->y][data->x] == 'C')
+			else if (data->map->map[data->y][data->x] == 'C')
 				data->img_ptr = data->coin;
-			if (data->map->map[data->y][data->x] == 'E')
+			else if (data->map->map[data->y][data->x] == 'E')
 				data->img_ptr = data->exit;
-			if (data->map->map[data->y][data->x] == '0')
-				data->img_ptr = data->floor;
-			if (data->map->map[data->y][data->x] == 'P')
-				data->img_ptr = data->floor;
-			if (data->map->map[data->y][data->x] == 'G')
+			else
 				data->img_ptr = data->floor;
 			ft_invalid_image_p(data);
 			mlx_put_image_to_window(data->mlx, data->win, data->img_ptr, data->x

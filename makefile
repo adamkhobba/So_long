@@ -58,3 +58,5 @@ fclean : clean
 	rm -f $(SO_LONG_BONUS)
 
 re : fclean all
+
+.SECONDARY: $(OBJ) $(OBJ_BONUS)

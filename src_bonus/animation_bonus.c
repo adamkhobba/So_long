@@ -49,12 +49,12 @@ int	ft_movement_enemy(t_data *data)
 	data->y = 0;
 	while (data->y < data->map->height)
 	{
-		data->x = -1 ;
+		data->x = -1;
 		while (data->x++ < data->map->width)
 		{
 			if (data->map->map[data->y][data->x] == 'G')
 			{
-					data->map->map[data->y][data->x] = '0';
+				data->map->map[data->y][data->x] = '0';
 				if (data->map->map[data->y][data->x + 1] == '0' && i <= 1)
 					data->map->map[data->y][data->x + 1] = 'G';
 				else if (data->map->map[data->y][data->x - 1] == '0' && i > 1)

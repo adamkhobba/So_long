@@ -32,8 +32,9 @@ void	ft_plus_fts(t_map *map)
 	if (map->height > 60 || map->width > 34)
 	{
 		ft_free_double_pointer(map->map, map->height);
-		ft_putstr("invalid size,
-			did you seen any game has a over size than your  monitor *^!@%");
+		ft_putstr("invalid size");
+		ft_putstr("did you seen any game has");
+		ft_putstr("a over size than your  monitor *^!@#");
 		exit(1);
 	}
 	map = check_items(map);
