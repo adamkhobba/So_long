@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:48:58 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/02 10:38:34 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 15:58:17 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int				ft_anim_enem(t_data *data);
 // exit
 int				ft_close_win(t_data *data);
 int				ft_close_lose(t_data *data);
+void ft_check_size(t_map *map);
 int				close_window(int keysym, t_data *data);
 int				ft_close(t_data *data);
 void			ft_invalid_image_p(t_data *data);

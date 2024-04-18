@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:51:35 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/02 10:40:32 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:03:20 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 void	ft_plus_fts(t_map *map)
 {
 	map = check_rec(map);
-	if (map->height > 60 || map->width > 34)
-	{
-		ft_free_double_pointer(map->map, map->height);
-		ft_putstr("invalid size");
-		ft_putstr("did you seen any game has");
-		ft_putstr("a over size than your  monitor *^!@#");
-		exit(1);
-	}
+	ft_check_size(map);
 	map = check_items(map);
 	map = flood_fill(map, '*');
 	ft_free_double_pointer(map->map, map->height);

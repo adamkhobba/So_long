@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:52 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:39:10 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:01:30 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int	check_path(const char *path)
 	char	*tmp;
 	int		n;
 
+	if (!path)
+		return (0);
 	str = (char *)path;
 	while (ft_strchr(str, '/'))
 	{

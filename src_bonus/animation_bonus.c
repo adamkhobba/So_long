@@ -6,12 +6,23 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:27 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:41:50 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 15:56:23 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
-
+void ft_check_size(t_map *map)
+{
+	map = check_rec(map);
+	if (map->height > 34 || map->width > 60)
+	{
+		ft_free_double_pointer(map->map, map->height);
+		ft_putstr("invalid size");
+		ft_putstr("did you seen any game has");
+		ft_putstr("a over size than your  monitor *^!@#");
+		exit(1);
+	}
+}
 int	ft_anim_enem(t_data *data)
 {
 	int		height;

@@ -3,38 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhobba <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:53:13 by akhobba           #+#    #+#             */
-/*   Updated: 2024/03/28 07:57:33 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 15:57:59 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ft_anim_enem(t_data *data)
+void ft_check_size(t_map *map)
 {
-	int		height;
-	int		width;
-	char	*s;
-
-	height = 64;
-	width = 64;
-	s = NULL;
-	if (data->frames < 20)
-		s = "./textures/Grid_f.xpm";
-	else if (data->frames < 30)
-		s = "./textures/Grid2_f.xpm";
-	else if (data->frames < 40)
-		s = "./textures/Grid3_f.xpm";
-	else if (data->frames < 60)
-		s = "./textures/Grid4_f.xpm";
-	else if (data->frames < 80)
+	map = check_rec(map);
+	if (map->height > 34 || map->width > 60)
 	{
-		if (data->frames + 1 == 80)
-			data->frames = 0;
+		ft_free_double_pointer(map->map, map->height);
+		ft_putstr("invalid size");
+		ft_putstr("did you seen any game has");
+		ft_putstr("a over size than your  monitor *^!@#");
+		exit(1);
 	}
-	data->grid = mlx_xpm_file_to_image(data->mlx, s, &width, &height);
-	data->frames++;
-	return (0);
 }

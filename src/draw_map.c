@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:05:38 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/01 20:37:22 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:05:01 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,6 @@ void	img_ptr(t_data *data)
 	else
 		data->exit = mlx_xpm_file_to_image(data->mlx, "./textures/odoor_f.xpm",
 				&width, &height);
-}
-
-int	grid(t_data *data)
-{
-	ft_anim_enem(data);
-	data->y = 0;
-	while (data->y < data->map->height)
-	{
-		data->x = 0;
-		while (data->x < data->map->width)
-		{
-			if (data->map->map[data->y][data->x] == 'G')
-				mlx_put_image_to_window(data->mlx, data->win, data->grid,
-					data->x * 64, data->y * 64);
-			data->x++;
-		}
-		data->y++;
-	}
-	return (1);
 }
 
 int	put_player(t_data *data)
@@ -102,6 +83,5 @@ int	draw_map(t_data *data)
 		}
 	}
 	put_player(data);
-	mlx_loop_hook(data->mlx, grid, data);
 	return (1);
 }

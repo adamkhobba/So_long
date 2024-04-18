@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:29:26 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/02 10:44:24 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:02:00 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_plus_fts(t_map *map)
 {
 	map = check_rec(map);
+	ft_check_size(map);
 	map = check_items(map);
 	map = flood_fill(map, '*');
 	ft_free_double_pointer(map->map, map->height);
