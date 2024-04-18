@@ -6,12 +6,13 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:27 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/18 15:56:23 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:15:55 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
-void ft_check_size(t_map *map)
+
+void	ft_check_size(t_map *map)
 {
 	map = check_rec(map);
 	if (map->height > 34 || map->width > 60)
@@ -23,6 +24,7 @@ void ft_check_size(t_map *map)
 		exit(1);
 	}
 }
+
 int	ft_anim_enem(t_data *data)
 {
 	int		height;

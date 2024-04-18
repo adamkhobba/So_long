@@ -12,7 +12,7 @@
 
 #include "../include/so_long.h"
 
-void ft_check_size(t_map *map)
+void	ft_check_size(t_map *map)
 {
 	map = check_rec(map);
 	if (map->height > 34 || map->width > 60)
