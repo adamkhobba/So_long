@@ -6,7 +6,7 @@
 #    By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 08:39:12 by adam              #+#    #+#              #
-#    Updated: 2024/03/20 22:15:22 by akhobba          ###   ########.fr        #
+#    Updated: 2024/04/18 10:52:02 by akhobba          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,5 +58,3 @@ fclean : clean
 	rm -f $(SO_LONG_BONUS)
 
 re : fclean all
-
-.SECONDARY: $(OBJ) $(OBJ_BONUS)
