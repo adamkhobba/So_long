@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 07:49:36 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/18 16:00:45 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/19 09:20:21 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_map	*check_only_items(t_map *map)
 	while (i < map->height)
 	{
 		j = 0;
-		while (j < map->width - 1)
+		while (map->map[i][j] && j < map->width)
 		{
 			if (map->map[i][j] == 'P')
 			{
@@ -81,8 +81,8 @@ t_map	*check_only_items(t_map *map)
 				map->p_pos_x = j;
 			}
 			if (!(map->map[i][j] == '1' || map->map[i][j] == 'P'
-					|| map->map[i][j] == '0' || map->map[i][j] == 'C'
-					|| map->map[i][j] == 'E'))
+					|| map->map[i][j] == '0' || map->map[i][j] == '\n'
+					|| map->map[i][j] == 'C' || map->map[i][j] == 'E'))
 				map->valid = 0;
 			j++;
 		}
