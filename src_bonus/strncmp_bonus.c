@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:30:36 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/02 11:07:51 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/19 09:40:35 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_invalid_image_grid(t_data *data)
 	if (data->grid == NULL)
 	{
 		ft_putstr("Error\n");
-		ft_putstr("invalid image");
+		ft_putstr("invalid image\n");
 		exit(1);
 	}
 }

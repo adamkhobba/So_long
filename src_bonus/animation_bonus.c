@@ -6,7 +6,7 @@
 /*   By: akhobba <akhobba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 08:28:27 by akhobba           #+#    #+#             */
-/*   Updated: 2024/04/18 20:31:54 by akhobba          ###   ########.fr       */
+/*   Updated: 2024/04/19 09:37:13 by akhobba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_check_size(t_map *map)
 	if (map->height > 34 || map->width > 60)
 	{
 		ft_free_double_pointer(map->map, map->height);
-		ft_putstr("invalid size");
-		ft_putstr("did you seen any game has");
-		ft_putstr("a over size than your  monitor *^!@#");
+		ft_putstr("invalid size\n");
+		ft_putstr("did you seen any game has\n");
+		ft_putstr("a over size than your  monitor *^!@#\n");
 		exit(1);
 	}
 }
